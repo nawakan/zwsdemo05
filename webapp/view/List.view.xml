@@ -1,0 +1,25 @@
+<mvc:View controllerName="zwsdemo05.controller.List"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="List" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <List headerText="Orders"
+                id="mylist"
+                items="{
+                    path: 'ordersModel>/Orders'
+                }"
+                mode="SingleSelectMaster"
+                selectionChange="onSelectionChange" >
+                <StandardListItem
+                    title="{ordersModel>OrderID}"
+                    description="{ordersModel>CustomerID}"/>
+            </List>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Create New" press="onCreateNew" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

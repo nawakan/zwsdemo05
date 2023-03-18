@@ -1,0 +1,74 @@
+<mvc:View controllerName="zwsdemo05.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="Detail" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="myform"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="Address"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" >
+                    <f:content>
+                        <Label text="OrderID" />
+                        <Text text="{ordersModel>OrderID}" />
+                        <Label text="CustomerID" />
+                        <Text text="{ordersModel>CustomerID}" />
+                        <Label text="EmployeeID" />
+                        <Text text="{ordersModel>EmployeeID}" />
+                        <Label text="OrderDate" />
+                        <Text text="{ordersModel>OrderDate}" />
+                        <Label text="RequiredDate" />
+                        <Text text="{ordersModel>RequiredDate}" />
+                        <Label text="ShippedDate" />
+                        <Text text="{ordersModel>ShippedDate}" />
+                        <Label text="ShipVia" />
+                        <Text text="{ordersModel>ShipVia}" />
+                        <Label text="Freight" />
+                        <Text text="{ordersModel>Freight}" />
+                        <Label text="ShipName" />
+                        <Text text="{ordersModel>ShipName}" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+
+            <Table id="table"
+                >
+                <columns>
+                    <Column>
+                        <Text text="ProductID" />
+                    </Column>
+                    <Column>
+                        <Text text="UnitPrice" />
+                    </Column>
+                    <Column>
+                        <Text text="Quantity" />
+                    </Column>
+                    <Column>
+                        <Text text="Discount" />
+                    </Column>
+                </columns>
+                <!-- <items>
+                    <ColumnListItem>
+                        <cells>
+                        </cells>
+                    </ColumnListItem>
+                </items> -->
+            </Table>
+
+        </content>
+    </Page>
+</mvc:View>

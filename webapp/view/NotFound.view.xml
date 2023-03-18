@@ -1,0 +1,14 @@
+<mvc:View controllerName="zwsdemo05.controller.NotFound"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="NotFound">
+        <content>
+           <MessagePage
+                title="{i18n>NotFound}"
+                text="{i18n>NotFound.text}"
+                description="{i18n>NotFound.description}"
+                    showNavButton="true"
+                    navButtonPress="onNavBack"/>
+        </content>
+    </Page>
+</mvc:View>

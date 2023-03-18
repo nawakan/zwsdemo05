@@ -1,0 +1,81 @@
+<mvc:View controllerName="zwsdemo05.controller.Create"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="Create"  showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <!-- <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormDisplay354"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="Address"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" >
+                    <f:content>
+                        <Label text="OrderID" />
+                        <Input id="OrderID" />
+                        <Label text="CustomerID." />
+                        <Input id="CustomerID"/>
+                        <Label text="EmployeeID" />
+                        <Input id="EmployeeID" />
+                        <Label text="OrderDate" />
+                        <Input id="OrderDate" />
+                        <Label text="RequiredDate" />
+                        <Input id="RequiredDate" />
+                        <Label text="ShippedDate" />
+                        <Input id="ShippedDate" />
+                        <Label text="ShipVia" />
+                        <Input id="ShipVia" />
+                        <Label text="Freight" />
+                        <Input id="Freight" />
+                        <Label text="ShipName" />
+                        <Input id="ShipName" />
+                        <Label text="ShipAddress" />
+                        <Input id="ShipAddress" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>  -->
+
+            <core:Fragment fragmentName="zwsdemo05.fragment.HeaderInput" type="XML"/>
+
+            <Table id="table"
+            delete="onDelete" >
+                <columns>
+                    <Column>
+                        <Text text="ProductID" />
+                    </Column>
+                    <Column>
+                        <Text text="UnitPrice" />
+                    </Column>
+                    <Column>
+                        <Text text="Quantity" />
+                    </Column>
+                    <Column>
+                        <Text text="Discount" />
+                    </Column>
+                </columns>
+            </Table>
+
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <Button text="Add Item" press="onAddItem"/>
+                <Button text="Enable Delete Mode" press="onToggleDelete"/>
+                <ToolbarSpacer/>
+                <Button text="Save" press="onSave"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
