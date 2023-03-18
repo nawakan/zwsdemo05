@@ -44,51 +44,47 @@ sap.ui.define([
     
             onSave: function(){
     
-                // var oODataModel = this.getView().getModel();
+                var oODataModel = this.getView().getModel("ordersModel");
     
-                // var oData = {
-                //     "CompanyCode":"1000",
-                //     "PurchasingDocumentType":"NB",
-                //     "VendorAccountNumber":"1001174",
-                //     "PurchasingOrganization":"1000",
-                //     "PurchasingGroup":"104",
-                //     "PODate":new Date(),
-                //     "CurrencyKey":"THB",
-                //     "PoItemNav":[]
-                // };
+                var oData = {
+                    "OrderID": parseInt(this.byId("OrderID").getValue()),
+                    "CustomerID":this.byId("CustomerID").getValue(),
+                    "EmployeeID":this.byId("EmployeeID").getValue(),
+                    "OrderDate":this.byId("OrderDate").getValue(),
+                    "RequiredDate":this.byId("RequiredDate").getValue(),
+                    "ShippedDate":this.byId("ShippedDate").getValue(),
+                    "ShipVia":this.byId("ShipVia").getValue(),
+                    "Freight":this.byId("Freight").getValue(),
+                    "ShipName":this.byId("ShipName").getValue(),
+                    "ShipAddress":this.byId("ShipAddress").getValue(),
+                    "Order_Details":[]
+                };
     
-                // var oTable = this.byId("table");
+                var oTable = this.byId("table");
     
-                // var oListItems = oTable.getItems(); //  Array
+                var oListItems = oTable.getItems(); //  Array of sap.m.ColumnListItem
     
-                // oListItems.forEach( (oListItem, iIndex) => {
+                oListItems.forEach( (oListItem, iIndex) => { // function(oListItem, iIndex){ }
                     
-                //     var oCells = oListItem.getCells();
+                    var oCells = oListItem.getCells();
     
-                //     oData.PoItemNav.push({
-                //         "ItemNumber":oCells[0].getValue(),
-                //         "MaterialNumber":oCells[1].getValue(),
-                //         "Plant":oCells[3].getValue(),
-                //         "PurchaseOrderQuantity":oCells[4].getValue(),
-                //         "PurchaseOrderUnit":oCells[5].getValue(),
-                //         "NetPrice":oCells[6].getValue()
-                //     });
+                    oData.Order_Details.push({
+                        "ProductID":oCells[0].getValue(),
+                        "UnitPrice":oCells[1].getValue(),
+                        "Quantity":oCells[2].getValue(),
+                        "Discount":oCells[3].getValue()
+                    });
     
-                // });
+                });
     
-                // oODataModel.create("/PoHeadSet", oData, {
-                //     success: function(oRes){
-                //         if(oRes.PurchasingDocumentNumber!=""){
-                //             sap.m.MessageToast.show("Po No. "+ oRes.PurchasingDocumentNumber +"has been created.");
-                //         }
-                //         else{
-                //             sap.m.MessageToast.show("Po cannot be created.");
-                //         }
-                //     },
-                //     error: oRes=>{
-                //         sap.m.MessageToast.show("OData cannot be called.");
-                //     }
-                // });
+                oODataModel.create("/Orders", oData, {
+                    success: oRes=>{
+                        sap.m.MessageToast.show("Success");
+                    },
+                    error: oRes=>{
+                        sap.m.MessageToast.show("Error");
+                    }
+                });
     
             },
 
@@ -136,7 +132,7 @@ sap.ui.define([
                                     path: "CompanyName",
                                     operator: sap.ui.model.FilterOperator.Contains,
                                     value1: sSearchText }) ],
-                                    
+
                                 and: false }),
 
                     template : new sap.m.StandardListItem({
