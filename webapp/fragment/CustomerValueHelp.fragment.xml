@@ -2,11 +2,12 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
     <Dialog title="Customer">
-        <customHeader>
+        <subHeader>
             <Toolbar>
-                <Input id="searchInput" liveChange="onLiveChange"/>
+                <Input id="searchInput" liveChange="onLiveChange"
+                placeholder="Search..."/>
             </Toolbar>
-        </customHeader>
+        </subHeader>
         <List id="customerList" items="{path: 'ordersModel>/Customers', templateShareable:false}"
         mode="SingleSelectMaster"
         selectionChange="onCustomerSelectionChange">

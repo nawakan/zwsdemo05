@@ -123,11 +123,22 @@ sap.ui.define([
 
                 oSearchList.bindItems({
                     path : "ordersModel>/Customers",
-                    filters: [ new sap.ui.model.Filter({
-                        path: "CustomerID",
-                        operator: sap.ui.model.FilterOperator.Contains,
-                        value1: sSearchText
-                    }) ],
+
+                    filters: new sap.ui.model.Filter({
+                                filters: [
+                                
+                                    new sap.ui.model.Filter({
+                                        path: "CustomerID",
+                                        operator: sap.ui.model.FilterOperator.Contains,
+                                        value1: sSearchText }),
+                
+                                    new sap.ui.model.Filter({
+                                    path: "CompanyName",
+                                    operator: sap.ui.model.FilterOperator.Contains,
+                                    value1: sSearchText }) ],
+                                    
+                                and: false }),
+
                     template : new sap.m.StandardListItem({
                         title:"{ordersModel>CustomerID}",
                         description:"{ordersModel>CompanyName}"
